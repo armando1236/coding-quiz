@@ -1,0 +1,19 @@
+header {
+    display: flex
+}
+header p{
+    color: blue;
+    justify-content: space-between;
+}
+
+main {
+    border: solid;
+    width: 900px;
+    text-align: center;
+    height: 300px;
+    line-height: 50px;
+    
+    border-radius: 50px;
+    margin: auto;
+}
+
