@@ -4,6 +4,7 @@ const questionsAnswers = [
         pa1: "Number",
         pa2: "String",
         pa3: "Boolean",
+        pa4: "Color",
         correct: "Color"
     }
 
@@ -16,7 +17,12 @@ const questionsAnswers = [
     }
 
     {
-        q: ""
+        q: "Github is a good to _____."
+        pa1: "Design websites",
+        pa2: "Work on math homework",
+        pa3: "Upload your work",
+        pa4: "chat with friends",
+        correct: "Upload your work"
     }
 ]
 
@@ -31,4 +37,3 @@ var timerInterval = setInterval(function(){
       clearInterval(timerInterval);
     };
   },1000)
-From mini-project
