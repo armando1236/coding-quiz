@@ -17,10 +17,38 @@ function blankScreen() {
 
 
 
-// var startQuoiz = document.getElementById("start");
 
 
-// start.addEventListener("click", function(){intro.style.display = "none" });
+
+var questionsAnswers = [
+    {
+        question:"Commonly used data types DO NOT include:",
+            answers: [
+                {text: "color", correct:true}
+                {text: "number", correct:false}
+                {text: "string", correct:false}
+                {text: "boolean", correct:false}
+            ]
+        },
+        {
+            question:"What does Nan stand for?",
+                answers: [
+                    {text: "Neither a Number", correct:false}
+                    {text: "no and no", correct:false}
+                    {text: "Not an Nose", correct:false}
+                    {text: "Not a Number", correct:true}
+                ]
+            },
+
+            
+
+
+
+
+
+
+
+
 
 
 // var questionsAnswers = [
