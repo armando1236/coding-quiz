@@ -1,10 +1,19 @@
 header {
     display: flex
+    
+    
+    
 }
 .score{
     color: blue;
-    justify-content: space-between;
+ 
+    
+    
 }
+/* 
+.time {
+   
+} */
 
 main {
     border: solid;

@@ -1,7 +1,5 @@
 
 var timeEl = document.querySelector(".time");
-
-
 var secondsLeft = 75;
 
 function setTime() {
@@ -10,17 +8,15 @@ function setTime() {
     secondsLeft--;
     timeEl.textContent = secondsLeft + "Time";
 
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0 || currentQuestionIndex >= questions.length) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      sendMessage();
+    //   sendMessage();
     }
 
   }, 1000);
 }
-
-setTime();
 
 
 
@@ -28,6 +24,7 @@ var startButton = document.getElementById('start')
 var introText = document.getElementById('intro')
 // var queContainer = document.getElementById('question-container') 
 var questionElement = document.getElementById('question-container')
+var questionText = document.getElementById('question-text')
 var answerButtonElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
@@ -37,9 +34,11 @@ startButton.addEventListener('click', blankScreen)
 
 
 function startGame() {
+    setTime();
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
+    showQuestion()
 }
 
 function blankScreen() {
@@ -52,8 +51,31 @@ function setNextQuestion () {
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
-function showQuestion(question) {
-    questionElement.innerText = question.question
+function showQuestion() {
+    questionText.innerText = questions[currentQuestionIndex].question;
+    var answersArrEl = document.getElementsByClassName('btn')
+    console.log(answersArrEl)
+    answerButtonElement.setAttribute("class", "")
+    for(i=0; i<answersArrEl.length; i++){
+        answersArrEl[i].textContent = questions[currentQuestionIndex].answers[i].text;
+        answersArrEl[i].setAttribute("data-correct", questions[currentQuestionIndex].answers[i].correct)
+        answersArrEl[i].addEventListener("click", checkAnswer)
+    }
+}
+
+function checkAnswer(e) {
+    var userChoice = e.target.dataset.correct;
+    if(userChoice == "true"){
+        console.log("nice")
+    }else {
+        console.log("bad")
+        secondsLeft -=10;
+    }
+    currentQuestionIndex++;
+
+    if(currentQuestionIndex<questions.length) {
+        showQuestion()
+    }
 
 }
 
