@@ -1,6 +1,36 @@
+
+var timeEl = document.querySelector(".time");
+
+
+var secondsLeft = 75;
+
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + "Time";
+
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+setTime();
+
+
+
 var startButton = document.getElementById('start')
 var introText = document.getElementById('intro')
-var queContainer = document.getElementById('question-container') 
+// var queContainer = document.getElementById('question-container') 
+var questionElement = document.getElementById('question-container')
+var answerButtonElement = document.getElementById('answer-buttons')
+
+let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', blankScreen)
@@ -8,37 +38,54 @@ startButton.addEventListener('click', blankScreen)
 
 function startGame() {
     startButton.classList.add('hide')
+    shuffledQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
 }
 
 function blankScreen() {
     introText.classList.add('hide')
-    queContainer.classList.add('appear')
+    // queContainer.classList.add('appear')
 }
 
 
+function setNextQuestion () {
+    showQuestion(shuffledQuestions[currentQuestionIndex])
+}
 
+function showQuestion(question) {
+    questionElement.innerText = question.question
 
+}
 
-
-var questionsAnswers = [
+var questions = [
     {
-        question:"Commonly used data types DO NOT include:",
+        question:"Commonly used data types DO NOT include",
             answers: [
-                {text: "color", correct:true}
-                {text: "number", correct:false}
-                {text: "string", correct:false}
+                {text: "color", correct:true},
+                {text: "number", correct:false},
+                {text: "string", correct:false},
                 {text: "boolean", correct:false}
             ]
         },
         {
             question:"What does Nan stand for?",
                 answers: [
-                    {text: "Neither a Number", correct:false}
-                    {text: "no and no", correct:false}
-                    {text: "Not an Nose", correct:false}
+                    {text: "Neither a Number", correct:false},
+                    {text: "no and no", correct:false},
+                    {text: "Not a Nose", correct:false},
                     {text: "Not a Number", correct:true}
                 ]
-            },
+        },
+        {
+            question:"Github is good for ______",
+                answers: [
+                    {text: "Designing websites", correct:false},
+                    {text: "Working on algorithms", correct:false},
+                    {text: "Saving your work to the cloud", correct:true},
+                    {text: "Connecting with friends", correct:false}
+                ]
+            }
+        ]
 
             
 
