@@ -1,17 +1,18 @@
 var startButton = document.getElementById('start')
 var introText = document.getElementById('intro')
+var queContainer = document.getElementById('question-container') 
 
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', blankScreen)
 
 
 function startGame() {
-    console.log('started')
     startButton.classList.add('hide')
 }
 
 function blankScreen() {
     introText.classList.add('hide')
+    queContainer.classList.add('appear')
 }
 
 
