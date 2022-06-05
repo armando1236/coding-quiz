@@ -2,17 +2,14 @@
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
 
+
 function setTime() {
-  // Sets interval in variable
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = secondsLeft + "Time";
 
     if(secondsLeft <= 0 || currentQuestionIndex >= questions.length) {
-      // Stops execution of action at set interval
       clearInterval(timerInterval);
-      // Calls function to create and append image
-    //   sendMessage();
     }
 
   }, 1000);
@@ -22,7 +19,6 @@ function setTime() {
 
 var startButton = document.getElementById('start')
 var introText = document.getElementById('intro')
-// var queContainer = document.getElementById('question-container') 
 var questionElement = document.getElementById('question-container')
 var questionText = document.getElementById('question-text')
 var answerButtonElement = document.getElementById('answer-buttons')
@@ -43,7 +39,7 @@ function startGame() {
 
 function blankScreen() {
     introText.classList.add('hide')
-    // queContainer.classList.add('appear')
+    
 }
 
 
@@ -64,9 +60,10 @@ function showQuestion() {
 }
 
 function checkAnswer(e) {
+    var correct = document.getElementById('correct')
     var userChoice = e.target.dataset.correct;
     if(userChoice == "true"){
-        console.log("nice")
+        console.log('yes')
     }else {
         console.log("bad")
         secondsLeft -=10;
@@ -76,6 +73,7 @@ function checkAnswer(e) {
     if(currentQuestionIndex<questions.length) {
         showQuestion()
     }
+
 
 }
 
@@ -118,33 +116,3 @@ var questions = [
 
 
 
-
-
-// var questionsAnswers = [
-
-//         {
-//             q:"Commonly used data types DO NOT include:"
-//             pa1: "Number",
-//             pa2: "String",
-//             pa3: "Boolean",
-//             pa4: "Color",
-//             correct: "Color"
-//         }
-    
-//         {
-//             q: "What does Nan stand for?"
-//             pa1: "no and no",
-//             pa2: "Not a Number",
-//             pa3: "Not an Nose",
-//             correct: "Not a Number"
-//         }
-    
-//         {
-//             q: "Github is good for ______"
-//             pa1: "Designing websites",
-//             pa2: "Working on math homework",
-//             pa3: "Uploading your work",
-//             pa4: "chatting with friends",
-//             correct: "Upload your work"
-//         }
-//     ];

@@ -19,7 +19,7 @@ main {
     border: solid;
     width: 900px;
     text-align: center;
-    height: 400px;
+    height: 500px;
     line-height: 50px;
     border-radius: 50px;
     margin: auto;
@@ -32,6 +32,11 @@ main {
 
 .hide {
     display: none;
+}
+
+#correct {
+  font-size: 50px;
+  display: none;
 }
 
 /* .container {
