@@ -10,10 +10,7 @@ header {
     
     
 }
-/* 
-.time {
-   
-} */
+
 
 main {
     border: solid;
@@ -26,23 +23,16 @@ main {
     box-shadow: 0 0 10px 2px;
 }
 
-.btn-grid {
+/* combined elements with similary attributes*/
+.btn-grid,
+.hide {
+
     display:none;
 }
 
-.hide {
-    display: none;
-}
 
 #correct {
   font-size: 50px;
   display: none;
 }
 
-/* .container {
-    visibility: hidden; */
-/* } */
-
-/* .appear {
-    visibility: visible; */
-/* } */

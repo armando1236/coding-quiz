@@ -1,4 +1,4 @@
-
+// variables for timer function
 var timeEl = document.querySelector(".time");
 var secondsLeft = 75;
 
@@ -24,7 +24,7 @@ var questionText = document.getElementById('question-text')
 var answerButtonElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
-
+// added an event listener to the start button
 startButton.addEventListener('click', startGame)
 startButton.addEventListener('click', blankScreen)
 
